@@ -1,0 +1,7 @@
+# FleetPulse
+
+.env
+node_modules/
+dist/
+.superpowers/
+*.log

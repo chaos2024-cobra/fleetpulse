@@ -1,0 +1,22 @@
+{
+  "name": "fleetpulse",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "shared",
+    "server",
+    "simulator",
+    "client",
+    "loadtest"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w server\" \"npm run dev -w simulator\" \"npm run dev -w client\"",
+    "build": "npm run build -w shared && npm run build -w client && npm run build -w server",
+    "seed": "npm run seed -w server",
+    "loadtest": "npm run start -w loadtest",
+    "test": "npm run test -w shared && npm run test -w server && npm run test -w simulator && npm run test -w client"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.5"
+  }
+}
