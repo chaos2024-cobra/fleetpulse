@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: fleetpulse
+    runtime: node
+    plan: free
+    branch: main
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DEVICE_KEY
+        generateValue: true
